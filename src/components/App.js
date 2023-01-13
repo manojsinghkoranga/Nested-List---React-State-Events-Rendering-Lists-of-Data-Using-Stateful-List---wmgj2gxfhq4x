@@ -155,7 +155,57 @@ const states = [
 ];
 
 function App() {
-  return <div id="main"></div>;
+
+  let stateCount = 1;
+  let cityCount = 1;
+
+  const [stateName, setStateName] = useState('none');
+  const [isSelectedState, setIsSeletedState] = useState(false);
+
+  const [cityName, setCityName] = useState('none');
+  const [isCitySelected, setIsCitySelected] = useState(false);
+
+  function selectState (event) {
+    setStateName(event.target.value);
+    setIsSeletedState(true);
+  }
+
+  function changeCity (event) {
+    setCityName(event.target.value);
+    setIsCitySelected(true);
+  }
+
+  const Selectcity = () => {
+
+    return (
+      <>
+        <select name="cities" id="cities" value={cityName} onChange={changeCity}> 
+           <option value={'none'}  disabled key={'none'}>--select city--</option>
+          {states.map((obj) => {
+            if(obj.name === stateName){
+              obj.cities.map((city) => {
+                return <option value={`${city.name}`} key={`state${stateCount}`} id={`state${stateCount++}`}>{city.name}</option>
+              })
+            }
+          })}
+        </select>
+      </>
+    )
+  }
+
+  return (
+    <div id="main">
+      <select name="states" id="states" value={stateName} onChange={selectState}>
+        <option value={'none'}  disabled key={'none'}>--select states--</option>
+        {states.map((obj) => {
+          return <option value={`${obj.name}`} key={`state${stateCount}`} id={`state${stateCount++}`}>{obj.name}</option>
+        })}
+      </select>
+      {isSelectedState && <Selectcity />}
+      
+
+    </div>
+  );
 }
 
 export default App;
