@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
+import SelectCity from "./SelectCity";
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -39,13 +40,11 @@ function App() {
 
   return (
     <div id="main">
-      <select name="states" id="states" value={stateName} onChange={selectState}>
-        <option value={'none'}  disabled key={'none'}>--select states--</option>
-        {states.map((obj) => {
-          return <option value={`${obj.name}`} key={`state${stateCount}`} id={`state${stateCount++}`}>{obj.name}</option>
+      <ul>
+        {states.map((State) => {
+          return <SelectCity  name={State.name} index={states.indexOf(State)} cities={State.cities} />
         })}
-      </select>
-      {/* {isSelectedState && <Selectcity cities={states[stateName]}/>} */}
+      </ul>
     </div>
   );
 }
