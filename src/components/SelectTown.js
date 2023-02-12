@@ -9,7 +9,7 @@ const SelectTown = (props) => {
 
     return (
         <>
-            <li key={name} id={`city${index}`} onClick={() => setIsClicked(!isClicked)}>{name}</li>
+            <li key={name} id={`city${index+1}`} onClick={() => setIsClicked(!isClicked)}>{name}</li>
             {isClicked && <ul>
                 {towns.map((town) => {
                    return <Towns name={town.name} index={towns.indexOf(town)} />

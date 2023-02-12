@@ -5,7 +5,7 @@ const Towns = (props) => {
 
     return (
         <>
-            <li key={name} id={`town${index}`}>{name}</li>
+            <li key={name} id={`town${index+1}`}>{name}</li>
         </>
     )
 }

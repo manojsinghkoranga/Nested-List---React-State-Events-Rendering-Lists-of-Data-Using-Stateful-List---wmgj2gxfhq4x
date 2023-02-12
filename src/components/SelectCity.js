@@ -8,12 +8,13 @@ const SelectCity = (props) => {
     const [isClicked, setIsClicked] = useState(false);
     return (
         <>
-            <li key={name} id={`state${index}`} onClick={()=> setIsClicked(!isClicked)}>{name}</li>
+            <li key={name} id={`state${index+1}`} onClick={()=> setIsClicked(!isClicked)}>{name}</li>
             {isClicked && <ul>
                 {cities.map((city) => {
                    return <SelectTown name={city.name} index={cities.indexOf(city)} towns={city.towns}/>
                 })}
-                </ul>}
+                </ul>
+            }
         </>
     )
 }

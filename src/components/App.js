@@ -41,9 +41,9 @@ function App() {
   return (
     <div id="main">
       <ul>
-        {states.map((State) => {
-          return <SelectCity  name={State.name} index={states.indexOf(State)} cities={State.cities} />
-        })}
+        {states.map((State) => (
+          <SelectCity  name={State.name} index={states.indexOf(State)} cities={State.cities} />
+        ))}
       </ul>
     </div>
   );
